@@ -18,6 +18,7 @@ import chalk from "chalk"
 import { string } from "@xcmats/js-toolbox"
 import { consoleWrapper } from "./lib/utils"
 import configureRoutes from "./routes"
+import { port } from "./config/env"
 import {
     name as applicationName,
     version,
@@ -40,8 +41,7 @@ const
     },
 
     // http server
-    app = express(),
-    port = 8082
+    app = express()
 
 
 
