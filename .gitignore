@@ -9,3 +9,6 @@
 
 # npm
 package-lock.json
+
+# configuration
+configuration.json
