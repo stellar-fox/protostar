@@ -10,7 +10,7 @@
 
 
 
-import hello from "./actions/hello"
+import createAccount from "./actions/create_account"
 
 
 
@@ -24,8 +24,7 @@ import hello from "./actions/hello"
  */
 export default function configureRoutes (app, logger) {
 
-
-    // "hello world" route
-    app.get("/", hello(logger))
+    // "create account" route
+    app.get("/", createAccount(logger))
 
 }

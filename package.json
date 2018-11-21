@@ -82,5 +82,5 @@
         "start": "nodemon -e js --watch ./src/ ./src/index.js --exec \"cross-env BABEL_ENV=development babel-node\"",
         "test": "npm run lint  &&  echo \"Warning: no tests specified (yet)\""
     },
-    "version": "0.1.0"
+    "version": "0.2.0"
 }
