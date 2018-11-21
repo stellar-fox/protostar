@@ -63,10 +63,12 @@ app.use((req, _res, next) => {
 app.use(json())
 app.use(urlencoded({ extended: true }))
 app.use((_req, res, next) => {
-    res.header(
-        "X-Powered-By",
-        `${applicationName}/${version}`
-    )
+    res.header({
+        "Access-Control-Allow-Headers":
+            "Origin, X-Requested-With, Content-Type, Accept",
+        "Access-Control-Allow-Origin": "*",
+        "X-Powered-By": `${applicationName}/${version}`,
+    })
     next()
 })
 
