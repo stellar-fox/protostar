@@ -11,6 +11,7 @@
 
 
 import { type } from "@xcmats/js-toolbox"
+import { createTestnetAccount } from "../lib/operations"
 
 
 
@@ -19,7 +20,7 @@ import { type } from "@xcmats/js-toolbox"
  * Create account.
  *
  * @function createAccount
- * @param {Function} _logger
+ * @param {Function} logger
  * @returns {Function} express.js action.
  */
 export default function createAccount (_logger) {
@@ -34,10 +35,21 @@ export default function createAccount (_logger) {
 
         } else {
 
-            res.status(200).send({
-                message: "hi!",
-                query: req.query,
-            })
+            try {
+
+                await createTestnetAccount(req.query.addr)
+
+                res.status(200).send({
+                    message: "All right!",
+                })
+
+            } catch (ex) {
+
+                res.status(500).send({
+                    error: ex,
+                })
+
+            }
 
         }
 
