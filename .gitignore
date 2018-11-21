@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+
+# auto-generated documentation
+/jsdoc
+
+# builds
+/dist
+
+# npm
+package-lock.json
