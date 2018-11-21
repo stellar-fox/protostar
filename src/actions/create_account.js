@@ -10,7 +10,10 @@
 
 
 
-import { type } from "@xcmats/js-toolbox"
+import {
+    codec,
+    type,
+} from "@xcmats/js-toolbox"
 import { createTestnetAccount } from "../lib/operations"
 
 
@@ -37,16 +40,17 @@ export default function createAccount (_logger) {
 
             try {
 
-                await createTestnetAccount(req.query.addr)
-
                 res.status(200).send({
                     message: "All right!",
+                    envelope_xdr: codec.b64enc(
+                        await createTestnetAccount(req.query.addr)
+                    ),
                 })
 
             } catch (ex) {
 
                 res.status(500).send({
-                    error: ex,
+                    error: ex.message,
                 })
 
             }
