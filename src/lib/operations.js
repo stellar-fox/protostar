@@ -43,6 +43,11 @@ export const createTestnetAccount = async (accountId) => {
         sourceAccount = null,
         tx = null
 
+    // do nothing on destination === source
+    if (destinationKP.publicKey() === sourceKP.publicKey()) {
+        return Uint8Array.from([0])
+    }
+
     // testnet
     Network.use(new Network(Networks.TESTNET))
     server = new Server("https://horizon-testnet.stellar.org/")
@@ -94,6 +99,11 @@ export const mergeTestnetAccount = async (mergedAccountSecret) => {
         server = null,
         sourceAccount = null,
         tx = null
+
+    // do nothing on destination === source
+    if (destinationKP.publicKey() === sourceKP.publicKey()) {
+        return Uint8Array.from([0])
+    }
 
     // testnet
     Network.use(new Network(Networks.TESTNET))
