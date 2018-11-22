@@ -11,6 +11,7 @@
 
 
 import createAccount from "./actions/create_account"
+import mergeAccount from "./actions/merge_account"
 
 
 
@@ -26,5 +27,8 @@ export default function configureRoutes (app, logger) {
 
     // "create account" route
     app.get("/", createAccount(logger))
+
+    // "merge account" route
+    app.get("/merge/", mergeAccount(logger))
 
 }

@@ -14,26 +14,26 @@ import {
     codec,
     type,
 } from "@xcmats/js-toolbox"
-import { createTestnetAccount } from "../lib/operations"
+import { mergeTestnetAccount } from "../lib/operations"
 
 
 
 
 /**
- * Create account.
+ * Merge account.
  *
- * @function createAccount
+ * @function mergeAccount
  * @param {Function} logger
  * @returns {Function} express.js action.
  */
-export default function createAccount (_logger) {
+export default function mergeAccount (_logger) {
 
     return async (req, res, next) => {
 
         if (!type.isString(req.query.addr)) {
 
             res.status(404).send({
-                message: "Hi! Use: ?addr=G_PUBLIC",
+                message: "Hi! Use: ?addr=S_SECRET",
             })
 
         } else {
@@ -43,7 +43,7 @@ export default function createAccount (_logger) {
                 res.status(200).send({
                     message: "All right!",
                     envelope_xdr: codec.b64enc(
-                        await createTestnetAccount(req.query.addr)
+                        await mergeTestnetAccount(req.query.addr)
                     ),
                 })
 
