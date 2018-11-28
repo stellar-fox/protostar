@@ -12,7 +12,7 @@
     "dependencies": {
         "@types/express": "^4.16.0",
         "@types/stellar-sdk": "^0.10.4",
-        "@xcmats/js-toolbox": "^0.6.16",
+        "@xcmats/js-toolbox": "^0.6.17",
         "chalk": "^2.4.1",
         "express": "^4.16.4",
         "stellar-sdk": "^0.11.0"
