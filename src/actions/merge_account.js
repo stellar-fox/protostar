@@ -49,10 +49,7 @@ export default function mergeAccount (_logger) {
 
             } catch (ex) {
 
-                res.status(ex.status || 500).send({
-                    error: ex.message,
-                    details: ex,
-                })
+                res.status(ex.status || 500).send({ error: ex.message })
 
             }
 
