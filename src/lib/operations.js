@@ -45,7 +45,7 @@ export const createTestnetAccount = async (accountId) => {
 
     // do nothing on destination === source
     if (destinationKP.publicKey() === sourceKP.publicKey()) {
-        return Uint8Array.from([0])
+        throw { message: "Won't fund myself.", status: 400 }
     }
 
     // testnet
@@ -102,7 +102,7 @@ export const mergeTestnetAccount = async (mergedAccountSecret) => {
 
     // do nothing on destination === source
     if (destinationKP.publicKey() === sourceKP.publicKey()) {
-        return Uint8Array.from([0])
+        throw { message: "Won't merge myself.", status: 400 }
     }
 
     // testnet
