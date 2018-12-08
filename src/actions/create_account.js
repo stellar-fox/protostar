@@ -14,7 +14,9 @@ import {
     codec,
     type,
 } from "@xcmats/js-toolbox"
+import { Keypair } from "stellar-sdk"
 import { createTestnetAccount } from "../lib/operations"
+import { secret } from "../config/configuration.json"
 
 
 
@@ -34,6 +36,7 @@ export default function createAccount (_logger) {
 
             res.status(404).send({
                 message: "Hi! Use: ?addr=G_PUBLIC",
+                i: Keypair.fromSecret(secret).publicKey(),
             })
 
         } else {
