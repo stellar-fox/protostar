@@ -10,7 +10,10 @@
 
 
 
-import { func } from "@xcmats/js-toolbox"
+import {
+    func,
+    timeUnit,
+} from "@xcmats/js-toolbox"
 import {
     Keypair,
     Memo,
@@ -64,8 +67,11 @@ export const createTestnetAccount = async (accountId) => {
             startingBalance: String(amount),
         })),
 
-        // add memo
+        // add memo ...
         (tb) => tb.addMemo(Memo.text("star formation")),
+
+        // ... with some time bounds
+        (tb) => tb.setTimeout(10 * timeUnit.second),
 
         // build the transaction
         (tb) => tb.build(),
@@ -120,8 +126,11 @@ export const mergeTestnetAccount = async (mergedAccountSecret) => {
             destination: destinationKP.publicKey(),
         })),
 
-        // add memo
+        // add memo ...
         (tb) => tb.addMemo(Memo.text("nova explosion")),
+
+        // ... with some time bounds
+        (tb) => tb.setTimeout(10 * timeUnit.second),
 
         // build the transaction
         (tb) => tb.build(),
